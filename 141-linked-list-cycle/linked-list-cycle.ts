@@ -13,18 +13,27 @@
 function hasCycle(head: ListNode | null): boolean {
 
     //Brute force : keep in set the reference visited
-    
-    if(head == null) return false
-    if(head.next == null) return false
+    let all = new Set()
     let p = head
-    let q = head
-
     while(p){
-        p=(p.next)?.next
-        q=q.next
-        if(p==q && p && q) return true
+        if(all.has(p)) return true
+        all.add(p)
+        p=p.next
     }
-    
+
     return false
+    
+    // if(head == null) return false
+    // if(head.next == null) return false
+    // let p = head
+    // let q = head
+
+    // while(p){
+    //     p=(p.next)?.next
+    //     q=q.next
+    //     if(p==q && p && q) return true
+    // }
+    
+    // return false
 
 };
