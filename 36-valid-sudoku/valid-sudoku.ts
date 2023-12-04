@@ -36,21 +36,21 @@ function isValidSudoku(board: string[][]): boolean {
     }
 
     //box
-        for (let i = 0; i < l; i++) {
-            const set = new Set<string>();
-            const rowStart = Math.floor(i / 3) * 3;
-            const colStart = (i % 3) * 3;
-            for (let j = 0; j < 9; j++) {
-                const row = rowStart + Math.floor(j / 3);
-                const col = colStart + (j % 3);
-                const cell = board[row][col];
-                if (cell !== ".") {
-                    if (set.has(cell)) {
-                        flag = false
-                        break
-                    } else {
-                        set.add(cell);
-                    }
+    
+    for (let i = 0; i < l; i++) {
+        const rowStart = Math.floor(i / 3) * 3;
+        const colStart = (i % 3) * 3;
+        let box = new Set()
+        for (let j = 0; j < l; j++) {
+            const row = rowStart + Math.floor(j / 3);
+            const col = colStart + (j % 3);
+            const cell = board[row][col];
+            if (cell !== ".") {
+                if (box.has(cell)) {
+                    flag = false
+                    break
+                }
+                box.add(cell);   
             }
         }
     }
