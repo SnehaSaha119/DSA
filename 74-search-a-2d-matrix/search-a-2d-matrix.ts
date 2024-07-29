@@ -1,9 +1,9 @@
 function searchMatrix(matrix: number[][], target: number): boolean {
     
-    for(let i=0;i<matrix.length;i++){
+    for(let i=0;i<matrix.length;i++){ // m
         let arr = matrix[i]
 
-        let result = binary(arr,target)
+        let result = binary(arr,target) // log n
         if(result==true) return result
     }
 
