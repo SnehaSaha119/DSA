@@ -19,7 +19,7 @@ function minimumAbsDifference(arr: number[]): number[][] {
 
     arr.sort((a, b) => a - b);
 
-    let minDiff = Infinity;
+    let minDiff = Number.MAX_SAFE_INTEGER;
     let result = [];
 
     // Step 2: Find the minimum absolute difference
