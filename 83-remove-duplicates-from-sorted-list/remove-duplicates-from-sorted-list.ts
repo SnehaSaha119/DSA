@@ -20,8 +20,7 @@ function deleteDuplicates(head: ListNode | null): ListNode | null {
             q = p.next
         }else{
             p = p.next
-            if(p.next!=null)
-                q = q.next
+            q = q.next
         }
     }
 
