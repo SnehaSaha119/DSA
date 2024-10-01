@@ -17,32 +17,24 @@
 
 
 function flatten(head: _Node | null): _Node | null {
-    let cur = head;
-    
-    while (cur) {
-        if (cur.child) {
-            let temp = cur.next;  // Save the next node
-            let child = cur.child;  // Get the child list
+    let cur = head
+    while(cur){
+        if(cur.child){
+            let temp = cur.next
+            cur.next = cur.child
+            cur.child = null
+            cur.next.prev = cur
+            let p = cur.next
+            while(p.next!=null)
+                p = p.next
 
-            cur.next = child;  // Connect current node to the child list
-            child.prev = cur;  // Set the child's prev pointer
-            cur.child = null;  // Clear the child pointer
-
-            // Find the tail of the child list
-            let p = child;
-            while (p.next) {
-                p = p.next;
-            }
-
-            // Reconnect the tail of the child list to the saved next node
-            p.next = temp;
-            if (temp) {
-                temp.prev = p;  // Set the prev pointer of the next node
-            }
+            p.next = temp
+            if(temp)
+            temp.prev = p
         }
-
-        cur = cur.next;  // Move to the next node
+        cur = cur.next
     }
 
-    return head;
-}
+    return head
+
+};
