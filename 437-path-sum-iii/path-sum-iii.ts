@@ -13,8 +13,6 @@
  */
 
 function pathSum(root: TreeNode | null, targetSum: number): number {
-    
-let result = []
     const mpp: Map<number, number> = new Map();
     mpp.set(0, 1);
     let ans = { count: 0 };
