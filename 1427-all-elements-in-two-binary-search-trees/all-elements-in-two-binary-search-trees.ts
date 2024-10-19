@@ -13,12 +13,11 @@
  */
 
 function getAllElements(root1: TreeNode | null, root2: TreeNode | null): number[] {
-    const freqMap = new Map<number, number>(); // Use Map for better handling of numeric keys
+    const freqMap = new Map<number, number>();
     inorderTraversal(root1, freqMap);
     inorderTraversal(root2, freqMap);
     
     const merged: number[] = [];
-    // Iterate through map keys (which are sorted automatically for numbers in Maps)
     Array.from(freqMap.keys()).sort((a, b) => a - b).forEach((key) => {
         const freq = freqMap.get(key)!;
         for (let i = 0; i < freq; i++) {
