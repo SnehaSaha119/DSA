@@ -18,10 +18,7 @@ function rec(r,c,m,n,dp,obstacleGrid){
     if(dp[r][c]!==-1)
         return dp[r][c]
     else{
-        const fromTop = r > 0 ? rec(r - 1, c,m,n, dp, obstacleGrid) : 0;
-        const fromLeft = c > 0 ? rec(r, c - 1,m,n, dp, obstacleGrid) : 0;
-
-        dp[r][c] = fromTop + fromLeft;
-        return dp[r][c];
+        
+        return dp[r][c] = rec(r - 1, c,m,n, dp, obstacleGrid) + rec(r, c - 1,m,n, dp, obstacleGrid)
     }
 }
