@@ -44,7 +44,7 @@ function rec(r,c,m,n,dp){
     if(r<0 || r>=m || c<0 || c>=n)
         return 0
 
-    if(r==0 || c==0)
+    if(r==0 && c==0)
         return 1
     
     if(dp[r][c]!==-1)
